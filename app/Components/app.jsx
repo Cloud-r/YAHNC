@@ -1,14 +1,16 @@
 import React from 'react';
 import TabContainer from './Tab';
+import HeaderCard from './HeaderCard';
+import FooterCard from './FooterCard';
 
 const main = () => (
   <div id="main-div">
-    <div id="title-div">Hacker News</div>
+    <HeaderCard />
     <div id="content-div">
       <TabContainer />
     </div>
     <hr id="footer-line" />
-    <div id="footer-div">Guidelines blah blah blah</div>
+    <FooterCard />
   </div>
 );
 

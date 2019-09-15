@@ -1,3 +1,5 @@
+$page-font-color: whitesmoke;
+
 body {
     height : 100vh;
     margin: 0px;
@@ -15,11 +17,17 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    color: whitesmoke;
+    color: $page-font-color;
     #title-div {
-        height:30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height:30px;
         background-color: #3500d3;
         text-align: center;
+        #header-icon {
+            margin: 0 5px;
+        }
     }
     #tab-container {
         display: flex;
@@ -38,23 +46,46 @@ body {
     #footer-div {
         height: 50px;
         background-color: #282828;
+        text-align: center;
     }
 }
 
 .story-card {
     display: flex;
-    margin-bottom: 5px;
+    margin: 10px 0px;
     span {
-        padding-left: 10px;
+        padding-right: 10px;
     }
     .story-id-div {
         min-width: 30px;
         text-align: center
     }
+    .card-title {
+        text-decoration: none;
+        color: $page-font-color;
+    }
     .details-line {
         font-size: 12px;
     }
+}
 
+#page-navigation {
+    padding : 10px 0;
+    box-sizing: border-box;
+    min-height: 40px;
+    span {
+        margin : 0 50px;
+    }
+    #back-button {
+        display: block;
+        float : left;
+        cursor: pointer;
+    }
+    #next-button {
+        display: block;
+        float: right;
+        cursor: pointer;
+    }
 }
 
 
