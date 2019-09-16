@@ -7,7 +7,9 @@ const StoryCard = ({ info: { id, title, score, by, descendants, url } }) => (
     </div>
     <div>
       <div className="header-line">
-        <a className="card-title" href={url}>{title}</a>
+        <a className="card-title" href={url}>
+          {title}
+        </a>
       </div>
       <div className="details-line">
         <span>{`${score} points`}</span>

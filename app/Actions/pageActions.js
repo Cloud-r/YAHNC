@@ -16,4 +16,8 @@ const ChangePage = (storyIds, page) => {
   };
 };
 
-export { ChangePage };
+const ClearStories = () => ({
+  type: 'CLEAR_STORIES',
+});
+
+export { ChangePage, ClearStories };

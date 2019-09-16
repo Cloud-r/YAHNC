@@ -9,7 +9,7 @@ const ChangeTab = (tab) => (dispatch) => {
       data: {
         tab,
         storyIds,
-        totalPages: Math.floor(storyIds.length % 30),
+        totalPages: Math.floor(storyIds.length / 30) + (storyIds.length % 30 ? 1 : 0),
       },
     });
   });

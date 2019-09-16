@@ -1,8 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import StoryCard from './StoryCard';
 import { ChangePage } from '../Actions/pageActions';
 import PageNavigation from './PageNavigationCard';
+import LoadingSpinner from './LoadingSpinner';
 
 const mapStateToProps = (state) => ({
   storyIds: state.tab.storyIds,
@@ -12,10 +14,14 @@ const mapStateToProps = (state) => ({
 const createStoryCards = (stories) =>
   stories.map((details, index) => <StoryCard key={index} info={details} />);
 
-const ContentDiv = ({ storyIds, dispatch, storiesList }) => {
+// Get the page number from the address bar or the link
+const StoriesTab = ({ storyIds, dispatch, storiesList = [] }) => {
+  // by default load the first page
   useEffect(() => {
     dispatch(ChangePage(storyIds, 1));
   }, [storyIds]);
+
+  // if the story ids and the story data are available load the data
   if (storyIds && storiesList.length > 0) {
     return (
       <>
@@ -24,7 +30,8 @@ const ContentDiv = ({ storyIds, dispatch, storiesList }) => {
       </>
     );
   }
-  return 'Loading...';
+
+  return <LoadingSpinner />;
 };
 
-export default connect(mapStateToProps)(ContentDiv);
+export default connect(mapStateToProps)(StoriesTab);

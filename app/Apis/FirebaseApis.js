@@ -6,11 +6,11 @@ const fetchStoryInstance = axios.create({
 
 const getUrl = (type) => {
   switch (type) {
-    case 'HOT':
+    case 'top':
       return 'https://hacker-news.firebaseio.com/v0/topstories.json';
-    case 'NEW':
+    case 'new':
       return 'https://hacker-news.firebaseio.com/v0/newstories.json';
-    case 'BEST':
+    case 'best':
       return 'https://hacker-news.firebaseio.com/v0/beststories.json';
     default:
       return 'https://hacker-news.firebaseio.com/v0/topstories.json';

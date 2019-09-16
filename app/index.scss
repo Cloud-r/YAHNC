@@ -25,6 +25,7 @@ body {
         min-height:30px;
         background-color: #3500d3;
         text-align: center;
+        font-size: 24px;
         #header-icon {
             margin: 0 5px;
         }
@@ -38,6 +39,8 @@ body {
         width: 100%;
         background-color: #282828;
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
     #footer-line {
         margin: 0px;
@@ -73,6 +76,7 @@ body {
     padding : 10px 0;
     box-sizing: border-box;
     min-height: 40px;
+    font-size: 20px;
     span {
         margin : 0 50px;
     }
@@ -86,6 +90,35 @@ body {
         float: right;
         cursor: pointer;
     }
+}
+
+
+#tab-nav-card-container {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    ul {
+        padding: 0;
+    }
+    li {
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color: $page-font-color;
+        }
+        margin-right: 15px;
+        list-style-type: none;
+    }
+    .selected {
+        font-weight: bold;
+    }
+}
+
+#loading-spinner-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

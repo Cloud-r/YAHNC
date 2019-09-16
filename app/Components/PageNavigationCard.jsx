@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { connect } from 'react-redux';
-import { ChangePage } from '../Actions/pageActions';
+import { ChangePage, ClearStories } from '../Actions/pageActions';
 
 const mapStateToProps = (state) => ({
   storyIds: state.tab.storyIds,
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => ({
 });
 
 const navButtonClick = (storyIds, toPage, dispatch) => {
+  dispatch(ClearStories());
   dispatch(ChangePage(storyIds, toPage));
 };
 const PageNavigation = ({ showBack, showNext, currentPage, dispatch, storyIds }) => (
