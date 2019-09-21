@@ -7,11 +7,6 @@ const TabReducer = (store = { tab: 'TOP', storyIds: [], totalPages: 1 }, action)
         storyIds: action.data.storyIds,
         totalPages: action.data.totalPages,
       };
-    case 'CLEAR_STORIES':
-      return {
-        ...store,
-        storyIds: [],
-      };
     default:
       return store;
   }

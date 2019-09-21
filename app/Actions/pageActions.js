@@ -1,8 +1,10 @@
 import { LoadStoriesFromIds } from '../Apis/FirebaseApis';
 
+const storiesPerPage = 30;
+
 const ChangePage = (storyIds, page) => {
-  const offSet = (page - 1) * 30;
-  const storiesToLoad = storyIds.slice(offSet, offSet + 30);
+  const offSet = (page - 1) * storiesPerPage;
+  const storiesToLoad = storyIds.slice(offSet, offSet + storiesPerPage);
   return (dispatch) => {
     LoadStoriesFromIds(offSet + 1, storiesToLoad).then((stories) =>
       dispatch({

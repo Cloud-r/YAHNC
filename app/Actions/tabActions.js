@@ -15,8 +15,4 @@ const ChangeTab = (tab) => (dispatch) => {
   });
 };
 
-const ClearIds = () => ({
-  type: 'CLEAR_STORIES',
-});
-
-export { ChangeTab, ClearIds };
+export { ChangeTab };

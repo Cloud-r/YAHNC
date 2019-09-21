@@ -19,8 +19,6 @@ const main = () => (
         </>
       </BrowserRouter>
     </div>
-    <hr id="footer-line" />
-    <FooterCard />
   </div>
 );
 

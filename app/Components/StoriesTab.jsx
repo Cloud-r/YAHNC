@@ -9,17 +9,18 @@ import { ClearStories } from '../Actions/pageActions';
 
 const mapStateToProps = (state, props) => ({
   category: props.match.params.category,
+  pageToLoad: Number(new URLSearchParams(props.location.search).get('p')) || 1,
 });
 
 // TODO Make data load based on the location attr in the html and remanme it from change tab
 // Load the approppriate stories for the selected category ex:hot,new etc
 // By default load the top category
-const StoriesTab = ({ category = 'top', dispatch }) => {
+const StoriesTab = ({ category = 'top', pageToLoad, dispatch }) => {
   useEffect(() => {
     dispatch(ClearStories());
     dispatch(ChangeTab(category));
   });
-  return <StoriesPage />;
+  return <StoriesPage pageToLoad={pageToLoad} />;
 };
 
 // TODO check if this has to be connected to the store

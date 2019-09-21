@@ -6,19 +6,20 @@ import { ChangePage } from '../Actions/pageActions';
 import PageNavigation from './PageNavigationCard';
 import LoadingSpinner from './LoadingSpinner';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
   storyIds: state.tab.storyIds,
   storiesList: state.page.storiesList,
+  pageToLoad: props.pageToLoad,
 });
 
 const createStoryCards = (stories) =>
   stories.map((details, index) => <StoryCard key={index} info={details} />);
 
 // Get the page number from the address bar or the link
-const StoriesTab = ({ storyIds, dispatch, storiesList = [] }) => {
+const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {
   // by default load the first page
   useEffect(() => {
-    dispatch(ChangePage(storyIds, 1));
+    dispatch(ChangePage(storyIds, pageToLoad));
   }, [storyIds]);
 
   // if the story ids and the story data are available load the data
