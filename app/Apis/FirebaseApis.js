@@ -1,4 +1,7 @@
-import axios from 'axios';
+import axios, { CancelToken } from 'axios';
+
+let loadTabCancel;
+let loadStoriesCancel;
 
 const fetchStoryInstance = axios.create({
   baseURL: 'https://hacker-news.firebaseio.com/v0/item/',
@@ -17,15 +20,41 @@ const getUrl = (type) => {
   }
 };
 const LoadStories = (type) => {
+  if (loadTabCancel) {
+    loadTabCancel.cancel();
+  }
+  loadTabCancel = CancelToken.source();
   const url = getUrl(type);
-  return axios.get(url).then(({ data }) => data);
+  return axios
+    .get(url, { cancelToken: loadTabCancel.token })
+    .then(({ data }) => data)
+    .catch((err) => {
+      if (axios.isCancel(err)) {
+        console.log('cancelled');
+      } else {
+        console.log(err);
+      }
+    });
 };
 
 const LoadStoriesFromIds = (startingCount = 0, Ids) => {
-  const resultPromise = Ids.map((id) => fetchStoryInstance.get(`${id}.json`));
+  if (loadStoriesCancel) {
+    loadStoriesCancel.cancel();
+  }
+  loadStoriesCancel = CancelToken.source();
+  const resultPromise = Ids.map((id) =>
+    fetchStoryInstance.get(`${id}.json`, { cancelToken: loadStoriesCancel.token }),
+  );
   return axios
     .all(resultPromise)
-    .then((results) => results.map(({ data }, index) => ({ ...data, id: index + startingCount })));
+    .then((results) => results.map(({ data }, index) => ({ ...data, id: index + startingCount })))
+    .catch((err) => {
+      if (axios.isCancel(err)) {
+        console.log('cancelled');
+      } else {
+        console.log(err);
+      }
+    });
 };
 
 export { LoadStories, LoadStoriesFromIds };
