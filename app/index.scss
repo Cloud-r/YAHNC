@@ -80,18 +80,22 @@ body {
   span {
     margin: 0 50px;
   }
-  #back-button {
-    display: block;
-    float: left;
-    cursor: pointer;
-  }
-  #next-button {
-    display: block;
-    float: right;
-    cursor: pointer;
-    text-decoration: none;
-    color: $page-font-color;
-  }
+}
+
+#next-button {
+  display: block;
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+  color: $page-font-color;
+}
+
+#back-button {
+  display: block;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+  color: $page-font-color;
 }
 
 #tab-nav-card-container {

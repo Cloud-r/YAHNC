@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import StoriesPage from "./StoriesPage";
@@ -12,8 +9,8 @@ const mapStateToProps = (state, props) => ({
   pageToLoad: Number(new URLSearchParams(props.location.search).get("p")) || 1
 });
 
-// TODO Make data load based on the location attr in the html and remanme it from change tab
-// Load the approppriate stories for the selected category ex:hot,new etc
+// TODO Make data load based on the location attr in the html and rename it from change tab
+// Load the appropriate stories for the selected category ex:hot,new etc
 // By default load the top category
 const StoriesTab = ({ category = "top", pageToLoad, dispatch }) => {
   useEffect(() => {

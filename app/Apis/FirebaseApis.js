@@ -7,7 +7,7 @@ const fetchStoryInstance = axios.create({
   baseURL: "https://hacker-news.firebaseio.com/v0/item/"
 });
 
-const getUrl = (type) => {
+const getUrl = type => {
   switch (type) {
     case "top":
       return "https://hacker-news.firebaseio.com/v0/topstories.json";
@@ -19,7 +19,7 @@ const getUrl = (type) => {
       return "https://hacker-news.firebaseio.com/v0/topstories.json";
   }
 };
-const LoadStories = (type) => {
+const LoadStories = type => {
   if (loadTabCancel) {
     loadTabCancel.cancel();
   }
@@ -28,7 +28,7 @@ const LoadStories = (type) => {
   return axios
     .get(url, { cancelToken: loadTabCancel.token })
     .then(({ data }) => data)
-    .catch((err) => {
+    .catch(err => {
       if (axios.isCancel(err)) {
         console.log("cancelled");
       } else {
@@ -42,13 +42,20 @@ const LoadStoriesFromIds = (startingCount = 0, Ids) => {
     loadStoriesCancel.cancel();
   }
   loadStoriesCancel = CancelToken.source();
-  const resultPromise = Ids.map((id) =>
-    fetchStoryInstance.get(`${id}.json`, { cancelToken: loadStoriesCancel.token })
+  const resultPromise = Ids.map(id =>
+    fetchStoryInstance.get(`${id}.json`, {
+      cancelToken: loadStoriesCancel.token
+    })
   );
   return axios
     .all(resultPromise)
-    .then((results) => results.map(({ data }, index) => ({ ...data, id: index + startingCount })))
-    .catch((err) => {
+    .then(results =>
+      results.map(({ data }, index) => ({
+        ...data,
+        displayId: index + startingCount
+      }))
+    )
+    .catch(err => {
       if (axios.isCancel(err)) {
         console.log("cancelled");
       } else {
@@ -57,8 +64,32 @@ const LoadStoriesFromIds = (startingCount = 0, Ids) => {
     });
 };
 
-const LoadComments = (commentIds) => {
-  const promiseList = commentIds.map((id) => fetchStoryInstance.get(`${id}.json`));
+const LoadComments = commentIds => {
+  const promiseList = commentIds.map(id =>
+    fetchStoryInstance.get(`${id}.json`)
+  );
+  return axios
+    .all(promiseList)
+    .then(comments => {
+      const childPromiseList = [];
+      comments.forEach(({ data: comment }) => {
+        if (comment.kids) {
+          let promise = LoadComments(comment.kids);
+          promise.then(data => {
+            comment.kids = data;
+          });
+          childPromiseList.push(promise);
+        }
+      });
+      return axios
+        .all(childPromiseList)
+        .then(() => comments.map(({ data }) => data));
+    })
+    .catch(() => console.log("comment load failed"));
 };
 
-export { LoadStories, LoadStoriesFromIds };
+const LoadStory = storyId => {
+  return fetchStoryInstance.get(`${storyId}.json`).then(({ data }) => data);
+};
+
+export { LoadStories, LoadStoriesFromIds, LoadComments, LoadStory };

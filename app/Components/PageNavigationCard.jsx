@@ -11,10 +11,16 @@ const mapStateToProps = (state, props) => ({
   showNext: state.tab.totalPages >= state.page.pageNo + 1,
   showBack: state.page.pageNo !== 1,
   currentPage: state.page.pageNo,
-  currentLoaction: props.match.url
+  currentLocation: props.match.url
 });
 
-const PageNavigation = ({ showBack, showNext, currentPage, currentLocation, dispatch }) => (
+const PageNavigation = ({
+  showBack,
+  showNext,
+  currentPage,
+  currentLocation,
+  dispatch
+}) => (
   <div id="page-nḁvigation">
     {showBack && (
       <Link

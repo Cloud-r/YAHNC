@@ -18,16 +18,6 @@ const TabNavigationCard = () => (
         Best
       </NavLink>
     </li>
-    <li>
-      <NavLink activeClassName="selected" to="/stories/ask">
-        AskHN
-      </NavLink>
-    </li>
-    <li>
-      <NavLink activeClassName="selected" to="/comments">
-        Comments
-      </NavLink>
-    </li>
   </ul>
 );
 

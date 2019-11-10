@@ -11,6 +11,11 @@ const loadReducer = (state = { storiesList: [], pageNo: null }, action) => {
         ...state,
         storiesList: []
       };
+    case "LOAD_COMMENTS":
+      return {
+        ...state,
+        comments: action.data.comments
+      }
     default:
       return state;
   }

@@ -11,8 +11,8 @@ const mapStateToProps = (state, props) => ({
   pageToLoad: props.pageToLoad
 });
 
-const createStoryCards = (stories) =>
-  stories.map((details) => <StoryCard key={details.id} info={details} />);
+const createStoryCards = stories =>
+  stories.map(details => <StoryCard key={details.displayId} info={details} />);
 
 // Get the page number from the address bar or the link
 const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {

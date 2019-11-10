@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const StoryCard = ({ info: { id, title, score, by, descendants, url } }) => (
+const StoryCard = ({
+  info: { displayId, id, title, score, by, descendants, url }
+}) => (
   <div className="story-card">
     <div className="story-id-div">
-      <span>{id}</span>
+      <span>{displayId}</span>
     </div>
     <div>
       <div className="header-line">
@@ -14,7 +17,9 @@ const StoryCard = ({ info: { id, title, score, by, descendants, url } }) => (
       <div className="details-line">
         <span>{`${score} points`}</span>
         <span>{`by ${by}`}</span>
-        <span>{`${descendants} commnets`}</span>
+        <Link to={{ pathname: "/story", search: `?storyId=${id}` }}>
+          <span>{`${descendants} comments`}</span>
+        </Link>
       </div>
     </div>
   </div>
