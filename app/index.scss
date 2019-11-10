@@ -1,130 +1,123 @@
 $page-font-color: whitesmoke;
 
 body {
-    height : 100vh;
-    margin: 0px;
-    font-family: roboto;
+  height: 100vh;
+  margin: 0px;
+  font-family: roboto;
 }
 
 #app {
-    height : 100%;
-    display: flex;
-    justify-content: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #main-div {
-    height: 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: $page-font-color;
+  #title-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 30px;
+    background-color: firebrick;
+    text-align: center;
+    font-size: 24px;
+    #header-icon {
+      margin: 0 5px;
+    }
+  }
+  #tab-container {
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  #content-div {
     width: 100%;
+    background-color: #282828;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    color: $page-font-color;
-    #title-div {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        min-height:30px;
-        background-color: firebrick;
-        text-align: center;
-        font-size: 24px;
-        #header-icon {
-            margin: 0 5px;
-        }
-    }
-    #tab-container {
-        display: flex;
-        justify-content: space-evenly;
-        cursor: pointer;
-    }
-    #content-div {
-        width: 100%;
-        background-color: #282828;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-    #footer-line {
-        margin: 0px;
-        border: 1.5px solid #3500d3;
-    }
-    #footer-div {
-        height: 50px;
-        background-color: #282828;
-        text-align: center;
-    }
+  }
+  #footer-line {
+    margin: 0px;
+    border: 1.5px solid #3500d3;
+  }
+  #footer-div {
+    height: 50px;
+    background-color: #282828;
+    text-align: center;
+  }
 }
 
 .story-card {
-    display: flex;
-    margin: 10px 0px;
-    span {
-        padding-right: 10px;
-    }
-    .story-id-div {
-        min-width: 30px;
-        text-align: center
-    }
-    .card-title {
-        text-decoration: none;
-        color: $page-font-color;
-    }
-    .details-line {
-        font-size: 12px;
-    }
+  display: flex;
+  margin: 10px 0px;
+  span {
+    padding-right: 10px;
+  }
+  .story-id-div {
+    min-width: 30px;
+    text-align: center;
+  }
+  .card-title {
+    text-decoration: none;
+    color: $page-font-color;
+  }
+  .details-line {
+    font-size: 12px;
+  }
 }
 
 #page-navigation {
-    padding : 10px 0;
-    box-sizing: border-box;
-    min-height: 40px;
-    font-size: 20px;
-    span {
-        margin : 0 50px;
-    }
-    #back-button {
-        display: block;
-        float : left;
-        cursor: pointer;
-    }
-    #next-button {
-        display: block;
-        float: right;
-        cursor: pointer;
-        text-decoration: none;
-        color: $page-font-color;
-    }
+  padding: 10px 0;
+  box-sizing: border-box;
+  min-height: 40px;
+  font-size: 20px;
+  span {
+    margin: 0 50px;
+  }
+  #back-button {
+    display: block;
+    float: left;
+    cursor: pointer;
+  }
+  #next-button {
+    display: block;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    color: $page-font-color;
+  }
 }
 
-
 #tab-nav-card-container {
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 20px;
-    ul {
-        padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  ul {
+    padding: 0;
+  }
+  li {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: $page-font-color;
     }
-    li {
-        a {
-            text-decoration: none;
-            cursor: pointer;
-            color: $page-font-color;
-        }
-        margin-right: 15px;
-        list-style-type: none;
-    }
-    .selected {
-        font-weight: bold;
-    }
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  .selected {
+    font-weight: bold;
+  }
 }
 
 #loading-spinner-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
-
-
-
-

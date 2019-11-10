@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const TabNavigationCard = () => (
   <ul id="tab-nav-card-container">
@@ -25,7 +25,7 @@ const TabNavigationCard = () => (
     </li>
     <li>
       <NavLink activeClassName="selected" to="/comments">
-        Commnets
+        Comments
       </NavLink>
     </li>
   </ul>

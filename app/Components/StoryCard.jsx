@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const StoryCard = ({ info: { id, title, score, by, descendants, url } }) => (
   <div className="story-card">

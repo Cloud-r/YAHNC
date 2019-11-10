@@ -1,4 +1,4 @@
-import { LoadStoriesFromIds } from '../Apis/FirebaseApis';
+import { LoadStoriesFromIds } from "../Apis/FirebaseApis";
 
 const storiesPerPage = 30;
 
@@ -8,18 +8,18 @@ const ChangePage = (storyIds, page) => {
   return (dispatch) => {
     LoadStoriesFromIds(offSet + 1, storiesToLoad).then((stories) =>
       dispatch({
-        type: 'PAGE_CHANGED',
+        type: "PAGE_CHANGED",
         data: {
           pageNo: page,
-          storiesList: stories,
-        },
-      }),
+          storiesList: stories
+        }
+      })
     );
   };
 };
 
 const ClearStories = () => ({
-  type: 'CLEAR_STORIES',
+  type: "CLEAR_STORIES"
 });
 
 export { ChangePage, ClearStories };

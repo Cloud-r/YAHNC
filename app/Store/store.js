@@ -1,10 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 
-import { createStore, compose } from 'redux';
+import { createStore, compose } from "redux";
 
-import Reducer from '../Reducers/reducer';
+import Reducer from "../Reducers/reducer";
 
-import Middleware from '../Middleware/middlewarre';
+import Middleware from "../Middleware/middlewarre";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
