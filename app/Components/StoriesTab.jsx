@@ -1,21 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import StoriesPage from './StoriesPage';
-import { ChangeTab } from '../Actions/tabActions';
-import { ClearStories } from '../Actions/pageActions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import StoriesPage from "./StoriesPage";
+import { ChangeTab } from "../Actions/tabActions";
+import { ClearStories } from "../Actions/pageActions";
 
 const mapStateToProps = (state, props) => ({
   category: props.match.params.category,
-  pageToLoad: Number(new URLSearchParams(props.location.search).get('p')) || 1,
+  pageToLoad: Number(new URLSearchParams(props.location.search).get("p")) || 1
 });
 
 // TODO Make data load based on the location attr in the html and remanme it from change tab
 // Load the approppriate stories for the selected category ex:hot,new etc
 // By default load the top category
-const StoriesTab = ({ category = 'top', pageToLoad, dispatch }) => {
+const StoriesTab = ({ category = "top", pageToLoad, dispatch }) => {
   useEffect(() => {
     dispatch(ClearStories());
     dispatch(ChangeTab(category));

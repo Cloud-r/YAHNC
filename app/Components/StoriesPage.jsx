@@ -1,19 +1,18 @@
-/* eslint-disable react/no-array-index-key */
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import StoryCard from './StoryCard';
-import { ChangePage } from '../Actions/pageActions';
-import PageNavigation from './PageNavigationCard';
-import LoadingSpinner from './LoadingSpinner';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import StoryCard from "./StoryCard";
+import { ChangePage } from "../Actions/pageActions";
+import PageNavigation from "./PageNavigationCard";
+import LoadingSpinner from "./LoadingSpinner";
 
 const mapStateToProps = (state, props) => ({
   storyIds: state.tab.storyIds,
   storiesList: state.page.storiesList,
-  pageToLoad: props.pageToLoad,
+  pageToLoad: props.pageToLoad
 });
 
 const createStoryCards = (stories) =>
-  stories.map((details, index) => <StoryCard key={index} info={details} />);
+  stories.map((details) => <StoryCard key={details.id} info={details} />);
 
 // Get the page number from the address bar or the link
 const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {

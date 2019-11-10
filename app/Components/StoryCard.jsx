@@ -14,7 +14,6 @@ const StoryCard = ({ info: { id, title, score, by, descendants, url } }) => (
       <div className="details-line">
         <span>{`${score} points`}</span>
         <span>{`by ${by}`}</span>
-        <span>hide</span>
         <span>{`${descendants} commnets`}</span>
       </div>
     </div>

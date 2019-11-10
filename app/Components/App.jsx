@@ -1,9 +1,8 @@
-import React from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import HeaderCard from './HeaderCard';
-import FooterCard from './FooterCard';
-import TabNavigationCard from './TabNavigationCard';
-import StoriesTab from './StoriesTab';
+import React from "react";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import HeaderCard from "./HeaderCard";
+import TabNavigationCard from "./TabNavigationCard";
+import StoriesTab from "./StoriesTab";
 
 const main = () => (
   <div id="main-div">

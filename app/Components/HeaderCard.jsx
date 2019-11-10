@@ -1,5 +1,5 @@
-import React from 'react';
-import { SlowMotionVideo } from '@material-ui/icons';
+import React from "react";
+import { SlowMotionVideo } from "@material-ui/icons";
 
 const HeaderCard = () => (
   <div id="title-div">

@@ -10,6 +10,7 @@ module.exports = {
     'max-len': ['error', 100],
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
     'no-mixed-operators': 'off',
+    "comma-dangle": ["error", "never"],
     'prefer-destructuring': [
       'error',
       {
@@ -38,8 +39,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        singleQuote: true,
-        trailingComma: 'all',
+        singleQuote: false,
         arrowParens: 'always',
         printWidth: 100,
       },
