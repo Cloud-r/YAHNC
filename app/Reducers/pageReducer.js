@@ -11,11 +11,16 @@ const loadReducer = (state = { storiesList: [], pageNo: null }, action) => {
         ...state,
         storiesList: []
       };
-    case "LOAD_COMMENTS":
+    case "LOAD_STORY_WITH_COMMENTS":
       return {
         ...state,
-        comments: action.data.comments
-      }
+        currentStory: action.data.story
+      };
+    case "CLEAR_CURRENT_STORY":
+      return {
+        ...state,
+        currentStory: null
+      };
     default:
       return state;
   }

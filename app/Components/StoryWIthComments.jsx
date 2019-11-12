@@ -1,33 +1,35 @@
 import React, { useEffect } from "react";
 import StoryCard from "./StoryCard";
 import { connect } from "react-redux";
-import { LoadStoryFromId } from "../Actions/pageActions";
+import { LoadStoryFromId, ClearCurrentStory } from "../Actions/pageActions";
+import Comment from "./Comment";
 
-const mapStateToProps = (
-  { page: { comments, currentStory: story } },
-  { location }
-) => {
+const mapStateToProps = ({ page: { currentStory: story } }) => {
   let params = new URL(document.location).searchParams;
   let storyId = params.get("storyId");
   return {
     story,
-    comments,
     storyId
   };
 };
 
 const createComments = comments => {
-  return comments.map(comment => <div comment={comment}></div>);
+  if (comments) {
+    return comments.map(comment => (
+      <Comment comment={comment} key={comment.id}></Comment>
+    ));
+  }
 };
-const StoryWithComments = ({ story, comments, storyId, dispatch }) => {
+const StoryWithComments = ({ story, storyId, dispatch }) => {
   useEffect(() => {
+    dispatch(ClearCurrentStory());
     dispatch(LoadStoryFromId(storyId));
   }, []);
-  if (story && comments) {
+  if (story) {
     return (
       <div>
         <StoryCard info={story} />
-        {createComments(comments)}
+        {createComments(story.kids)}
       </div>
     );
   }

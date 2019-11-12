@@ -46,6 +46,7 @@
     "firebase-tools": "^6.9.2",
     "install": "^0.12.2",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "npm": "^6.4.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.3",

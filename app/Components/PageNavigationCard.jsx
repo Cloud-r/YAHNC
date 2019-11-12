@@ -23,22 +23,24 @@ const PageNavigation = ({
 }) => (
   <div id="page-nḁvigation">
     {showBack && (
-      <Link
-        to={{ pathName: currentLocation, search: `?p=${currentPage - 1}` }}
-        onClick={dispatch.bind(this, ClearStories())}
-        id="back-button"
-      >
-        Back
-      </Link>
+      <span className="bottom-navigation-button" id="back-button">
+        <Link
+          to={{ pathName: currentLocation, search: `?p=${currentPage - 1}` }}
+          onClick={dispatch.bind(this, ClearStories())}
+        >
+          Back
+        </Link>
+      </span>
     )}
     {showNext && (
-      <Link
-        to={{ pathName: currentLocation, search: `?p=${currentPage + 1}` }}
-        onClick={dispatch.bind(this, ClearStories())}
-        id="next-button"
-      >
-        Next
-      </Link>
+      <span className="bottom-navigation-button" id="next-button">
+        <Link
+          to={{ pathName: currentLocation, search: `?p=${currentPage + 1}` }}
+          onClick={dispatch.bind(this, ClearStories())}
+        >
+          Next
+        </Link>
+      </span>
     )}
   </div>
 );

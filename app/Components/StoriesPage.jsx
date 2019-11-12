@@ -24,10 +24,10 @@ const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {
   // if the story ids and the story data are available load the data
   if (storyIds && storiesList.length > 0) {
     return (
-      <>
+      <div id="story-card-container">
         <div>{createStoryCards(storiesList)}</div>
         <PageNavigation />
-      </>
+      </div>
     );
   }
 

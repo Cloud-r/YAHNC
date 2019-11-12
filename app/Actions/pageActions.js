@@ -32,7 +32,7 @@ const LoadStoryFromId = storyId => {
       LoadComments(story.kids).then(comments => {
         story.kids = comments;
         dispatch({
-          type: "LOAD_STORY",
+          type: "LOAD_STORY_WITH_COMMENTS",
           data: {
             story
           }
@@ -42,4 +42,6 @@ const LoadStoryFromId = storyId => {
   };
 };
 
-export { ChangePage, ClearStories, LoadStoryFromId };
+const ClearCurrentStory = () => ({ type: "CLEAR_CURRENT_STORY" });
+
+export { ChangePage, ClearStories, LoadStoryFromId, ClearCurrentStory };

@@ -64,7 +64,7 @@ const LoadStoriesFromIds = (startingCount = 0, Ids) => {
     });
 };
 
-const LoadComments = commentIds => {
+const LoadComments = (commentIds = []) => {
   const promiseList = commentIds.map(id =>
     fetchStoryInstance.get(`${id}.json`)
   );
