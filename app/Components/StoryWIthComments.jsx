@@ -27,9 +27,11 @@ const StoryWithComments = ({ story, storyId, dispatch }) => {
   }, []);
   if (story) {
     return (
-      <div>
-        <StoryCard info={story} />
-        {createComments(story.kids)}
+      <div id={"story-with-comments-page"}>
+        <div id={"story-with-comments-page-story-card"}>
+          <StoryCard info={story} />
+        </div>
+        <div id="comment-container">{createComments(story.kids)}</div>
       </div>
     );
   }
