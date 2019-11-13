@@ -8,7 +8,6 @@ $card-color: rgb(20, 31, 45);
 $card-color: rgba(28, 28, 28, 0.9);
 $link-color: #4fbcff;
 
-
 body {
   height: 100vh;
   margin: 0px;
@@ -166,8 +165,10 @@ body {
     color: $secondary-text-color;
     padding-bottom: 5px;
   }
+  .comment-data {
+    color: $primary-text-color;
+  }
   .comment-children {
-    border-left: 1px solid  #666666;
     padding-left: 10px;
   }
 }
@@ -230,5 +231,23 @@ body {
 }
 
 #story-with-comments-page-story-card {
-  width:100%
+  width: 100%;
+}
+
+.comment-children-container {
+  display: flex;
+}
+.comment-minimizer {
+  flex-basis: 0%;
+  border-right: 2px solid #666666;
+  box-sizing: border-box;
+  padding: 0px 2px;
+  cursor: pointer;
+  &:hover {
+    border-right: 2px solid whitesmoke;
+  }
+}
+.comment-expander {
+  margin-left: 10px;
+  cursor: pointer;
 }
