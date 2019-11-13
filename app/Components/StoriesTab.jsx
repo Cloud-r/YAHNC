@@ -9,9 +9,6 @@ const mapStateToProps = (state, props) => ({
   pageToLoad: Number(new URLSearchParams(props.location.search).get("p")) || 1
 });
 
-// TODO Make data load based on the location attr in the html and rename it from change tab
-// Load the appropriate stories for the selected category ex:hot,new etc
-// By default load the top category
 const StoriesTab = ({ category = "top", pageToLoad, dispatch }) => {
   useEffect(() => {
     dispatch(ClearStories());

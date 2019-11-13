@@ -11,7 +11,6 @@ const main = () => (
     <div id="content-div">
       <BrowserRouter>
         <>
-          <TabNavigationCard />
           <Switch>
             <Route path="/stories/:category" component={StoriesTab} />
             <Route path="/story" component={StoryWithComments} />

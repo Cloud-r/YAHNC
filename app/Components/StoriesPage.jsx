@@ -4,6 +4,7 @@ import StoryCard from "./StoryCard";
 import { ChangePage } from "../Actions/pageActions";
 import PageNavigation from "./PageNavigationCard";
 import LoadingSpinner from "./LoadingSpinner";
+import TabNavigationCard from "./TabNavigationCard";
 
 const mapStateToProps = (state, props) => ({
   storyIds: state.tab.storyIds,
@@ -22,16 +23,24 @@ const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {
   }, [storyIds]);
 
   // if the story ids and the story data are available load the data
-  if (storyIds && storiesList.length > 0) {
-    return (
-      <div id="story-card-container">
-        <div>{createStoryCards(storiesList)}</div>
-        <PageNavigation />
+  return (
+    <div id="story-card-container">
+      <div id="left-panel">
+        <TabNavigationCard />
       </div>
-    );
-  }
+      <div id="middle-panel">
+        {storyIds && storiesList.length > 0 && (
+          <>
+            {createStoryCards(storiesList)}
+            <PageNavigation />
+          </>
+        )}
+        {!storyIds || (storiesList.length == 0 && <LoadingSpinner />)}
+      </div>
 
-  return <LoadingSpinner />;
+      <div id="right-panel"></div>
+    </div>
+  );
 };
 
 export default connect(mapStateToProps)(StoriesTab);

@@ -15,6 +15,12 @@ const getUrl = type => {
       return "https://hacker-news.firebaseio.com/v0/newstories.json";
     case "best":
       return "https://hacker-news.firebaseio.com/v0/beststories.json";
+    case "ask":
+      return "https://hacker-news.firebaseio.com/v0/askstories.json";
+    case "show":
+      return "https://hacker-news.firebaseio.com/v0/showstories.json";
+    case "jobs":
+      return "https://hacker-news.firebaseio.com/v0/jobstories.json";
     default:
       return "https://hacker-news.firebaseio.com/v0/topstories.json";
   }
