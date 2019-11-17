@@ -3,6 +3,7 @@ import StoryCard from "./StoryCard";
 import { connect } from "react-redux";
 import { LoadStoryFromId, ClearCurrentStory } from "../Actions/pageActions";
 import Comment from "./Comment";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const mapStateToProps = ({ page: { currentStory: story } }) => {
   let params = new URL(document.location).searchParams;
@@ -25,17 +26,32 @@ const StoryWithComments = ({ story, storyId, dispatch }) => {
     dispatch(ClearCurrentStory());
     dispatch(LoadStoryFromId(storyId));
   }, []);
-  if (story) {
-    return (
-      <div id={"story-with-comments-page"}>
-        <div id={"story-with-comments-page-story-card"}>
-          <StoryCard info={story} />
+  return (
+    <div id={"story-with-comments-page"}>
+      {story && (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
+          <div id={"story-with-comments-page-story-card"}>
+            <StoryCard info={story} />
+          </div>
+          <div id="comment-container">{createComments(story.kids)}</div>
         </div>
-        <div id="comment-container">{createComments(story.kids)}</div>
-      </div>
-    );
-  }
-  return <div>Loading...</div>;
+      )}
+      <ScaleLoader
+        sizeUnit={"px"}
+        size={50}
+        color={"#4fbcff"}
+        loading={!story}
+      />
+    </div>
+  );
 };
 
 const connectedComponent = connect(mapStateToProps)(StoryWithComments);

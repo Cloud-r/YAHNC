@@ -1,6 +1,7 @@
 import React from "react";
 import { serializeDate } from "../helpers/timeConverter";
 import { Card } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const generateItems = (items, userId) => {
   return items.map(item => {
@@ -25,12 +26,15 @@ const generateItems = (items, userId) => {
               <>
                 <span className="mdi mdi-comment-text-outline"></span>
                 <span>
-                  <a
+                  <Link
                     className={"user-name-display"}
-                    href={`/user?userId=${userId}`}
+                    to={{
+                      pathname: "/user",
+                      search: `?userId=${userId}`
+                    }}
                   >
                     {userId}
-                  </a>
+                  </Link>
                 </span>
 
                 <span>commented</span>

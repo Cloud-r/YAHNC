@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Typography } from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import { serializeDate } from "../helpers/timeConverter";
 
 const UserInfoCard = ({ userData: { id, created, karma, about } }) => {
@@ -9,7 +9,10 @@ const UserInfoCard = ({ userData: { id, created, karma, about } }) => {
       <div className={"user-image"}>
         <Card
           className={"avatar-holder"}
-          style={{ backgroundImage: `url("../app/static/avatars/${karma % 10}.png")` }}
+          style={{
+            backgroundImage: `url("../app/static/avatars/${(karma % 10) +
+              1}.png")`
+          }}
         ></Card>
         <div>{`u/${id}`}</div>
       </div>

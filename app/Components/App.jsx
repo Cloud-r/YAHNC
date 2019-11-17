@@ -7,10 +7,10 @@ import UserPage from "./UserPage";
 
 const main = () => (
   <div id="main-div">
-    <HeaderCard />
     <div id="content-div">
       <BrowserRouter>
         <>
+          <HeaderCard />
           <Switch>
             <Route path="/stories/:category" component={StoriesTab} />
             <Route path="/story" component={StoryWithComments} />

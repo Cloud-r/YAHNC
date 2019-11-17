@@ -20,11 +20,16 @@ const loadReducer = (state = { storiesList: [], pageNo: null }, action) => {
       return {
         ...state,
         userData: action.data.userDetails
-      }
+      };
     case "CLEAR_CURRENT_STORY":
       return {
         ...state,
         currentStory: null
+      };
+    case "CLEAR_USER_DATA":
+      return {
+        ...state,
+        userData: undefined
       };
     default:
       return state;

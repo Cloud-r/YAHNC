@@ -21,9 +21,15 @@ const StoryCard = ({
           <span>{`${score} points`}</span>
           <span>by</span>
           <span>
-            <a className={"user-name-display"} href={`/user?userId=${by}`}>
+            <Link
+              className={"user-name-display"}
+              to={{
+                pathname: "/user",
+                search: `?userId=${by}`
+              }}
+            >
               {by}
-            </a>
+            </Link>
           </span>
           <span>{moment.unix(time).from(currentTime)}</span>
           <Link

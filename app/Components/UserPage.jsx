@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import UserInfoCard from "./UserInfoCard";
 import { connect } from "react-redux";
-import { LoadUserDetailsFromId } from "../Actions/pageActions";
+import { LoadUserDetailsFromId, ClearUserData } from "../Actions/pageActions";
 import UserItems from "./UserItems";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const mapStateToProps = ({ page: { userData } }, { dispatch }) => {
   return { userData, dispatch };
@@ -11,6 +12,7 @@ const userPage = ({ userData, dispatch }) => {
   useEffect(() => {
     let params = new URL(document.location).searchParams;
     let userId = params.get("userId");
+    dispatch(ClearUserData());
     dispatch(LoadUserDetailsFromId(userId));
   }, []);
   return (
@@ -28,7 +30,14 @@ const userPage = ({ userData, dispatch }) => {
           </div>
         </>
       )}
-      {!userData && <div>Loading...</div>}
+      {
+        <ScaleLoader
+          sizeUnit={"px"}
+          size={50}
+          color={"#4fbcff"}
+          loading={!userData}
+        />
+      }
     </div>
   );
 };

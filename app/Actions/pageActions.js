@@ -61,4 +61,13 @@ const LoadUserDetailsFromId = userId => {
 
 const ClearCurrentStory = () => ({ type: "CLEAR_CURRENT_STORY" });
 
-export { ChangePage, ClearStories, LoadStoryFromId, ClearCurrentStory, LoadUserDetailsFromId };
+const ClearUserData = () => ({ type: "CLEAR_USER_DATA" });
+
+export {
+  ChangePage,
+  ClearStories,
+  LoadStoryFromId,
+  ClearCurrentStory,
+  LoadUserDetailsFromId,
+  ClearUserData
+};

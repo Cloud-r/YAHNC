@@ -1,9 +1,9 @@
 import React from "react";
-import { CircularProgress } from "@material-ui/core";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const LoadingSpinner = () => (
   <div id="loading-spinner-container">
-    <CircularProgress />
+    <ScaleLoader sizeUnit={"px"} size={50} color={"#4fbcff"} loading={true} />{" "}
   </div>
 );
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { Paper, Slider, Typography } from "@material-ui/core";
+import Link from "react-router-dom/Link";
 
 const currentTime = moment();
 const createSubComments = comments => {
@@ -19,12 +20,15 @@ const Comment = ({ comment }) => {
         <div className="comment-user-info">
           <span>by</span>
           <span>
-            <a
+            <Link
               className={"user-name-display"}
-              href={`/user?userId=${comment.by}`}
+              to={{
+                pathname: "/user",
+                search: `?userId=${comment.by}`
+              }}
             >
               {comment.by}
-            </a>
+            </Link>
           </span>
           <span>{moment.unix(comment.time).from(currentTime)}</span>
           {!visibility && (

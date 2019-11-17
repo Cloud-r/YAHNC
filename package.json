@@ -39,6 +39,7 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/runtime": "^7.4.3",
+    "@emotion/babel-preset-css-prop": "^10.0.23",
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.0.1",
     "@mdi/font": "^4.5.95",
@@ -57,6 +58,7 @@
     "react-dom": "^16.8.0",
     "react-redux": "^7.0.3",
     "react-router-dom": "^4.3.1",
+    "react-spinners": "^0.6.1",
     "redis": "^2.8.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
