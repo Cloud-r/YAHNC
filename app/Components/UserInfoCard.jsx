@@ -9,7 +9,7 @@ const UserInfoCard = ({ userData: { id, created, karma, about } }) => {
       <div className={"user-image"}>
         <Card
           className={"avatar-holder"}
-          style={{ backgroundImage: 'url("../app/static/avatars/1.png")' }}
+          style={{ backgroundImage: `url("../app/static/avatars/${karma % 10}.png")` }}
         ></Card>
         <div>{`u/${id}`}</div>
       </div>
