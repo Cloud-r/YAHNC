@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import HeaderCard from "./HeaderCard";
 import StoriesTab from "./StoriesTab";
-import StoryWithComments from "./StoryWIthComments";
+import StoryWithComments from "./StoryWithComments";
 import UserPage from "./UserPage";
 
 const main = () => (
