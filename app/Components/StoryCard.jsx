@@ -19,7 +19,12 @@ const StoryCard = ({
       <div>
         <Typography variant="subtitle1" className="details-line">
           <span>{`${score} points`}</span>
-          <span>{`by ${by}`}</span>
+          <span>by</span>
+          <span>
+            <a className={"user-name-display"} href={`/user?userId=${by}`}>
+              {by}
+            </a>
+          </span>
           <span>{moment.unix(time).from(currentTime)}</span>
           <Link
             className="comment-link"

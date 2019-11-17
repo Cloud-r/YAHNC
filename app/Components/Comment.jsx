@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { Paper, Slider } from "@material-ui/core";
+import { Paper, Slider, Typography } from "@material-ui/core";
 
 const currentTime = moment();
 const createSubComments = comments => {
@@ -17,11 +17,16 @@ const Comment = ({ comment }) => {
     <div className="comment">
       <Paper className="comment-card">
         <div className="comment-user-info">
+          <span>by</span>
           <span>
-            {`by ${comment.by} ${moment
-              .unix(comment.time)
-              .from(currentTime)}  `}
+            <a
+              className={"user-name-display"}
+              href={`/user?userId=${comment.by}`}
+            >
+              {comment.by}
+            </a>
           </span>
+          <span>{moment.unix(comment.time).from(currentTime)}</span>
           {!visibility && (
             <span
               className={"comment-expander mdi mdi-plus-box-outline"}

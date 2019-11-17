@@ -35,7 +35,7 @@ const StoriesTab = ({ storyIds, pageToLoad, dispatch, storiesList = [] }) => {
             <PageNavigation />
           </>
         )}
-        {!storyIds || (storiesList.length == 0 && <LoadingSpinner />)}
+        {(!storyIds || storiesList.length == 0) && <LoadingSpinner />}
       </div>
 
       <div id="right-panel"></div>

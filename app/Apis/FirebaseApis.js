@@ -7,6 +7,10 @@ const fetchStoryInstance = axios.create({
   baseURL: "https://hacker-news.firebaseio.com/v0/item/"
 });
 
+const fetchUserDetails = axios.create({
+  baseURL: "https://hacker-news.firebaseio.com/v0/user/"
+});
+
 const getUrl = type => {
   switch (type) {
     case "top":
@@ -98,4 +102,8 @@ const LoadStory = storyId => {
   return fetchStoryInstance.get(`${storyId}.json`).then(({ data }) => data);
 };
 
-export { LoadStories, LoadStoriesFromIds, LoadComments, LoadStory };
+const LoadUserDetails = userId => {
+  return fetchUserDetails.get(`/${userId}.json`).then(({ data }) => data);
+};
+
+export { LoadStories, LoadStoriesFromIds, LoadComments, LoadStory, LoadUserDetails };

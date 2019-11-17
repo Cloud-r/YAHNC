@@ -4,7 +4,7 @@ import { createStore, compose } from "redux";
 
 import Reducer from "../Reducers/reducer";
 
-import Middleware from "../Middleware/middlewarre";
+import Middleware from "../Middleware/middleware";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

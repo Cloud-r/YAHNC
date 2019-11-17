@@ -1,7 +1,8 @@
 import {
   LoadStoriesFromIds,
   LoadComments,
-  LoadStory
+  LoadStory,
+  LoadUserDetails
 } from "../Apis/FirebaseApis";
 
 const storiesPerPage = 30;
@@ -42,6 +43,22 @@ const LoadStoryFromId = storyId => {
   };
 };
 
+const LoadUserDetailsFromId = userId => {
+  return (dispatch, store) => {
+    LoadUserDetails(userId).then(data => {
+      LoadStoriesFromIds(0, data.submitted.slice(0, 9)).then(stories => {
+        data.submitted = stories;
+        dispatch({
+          type: "LOAD_USER_DATA",
+          data: {
+            userDetails: data
+          }
+        });
+      });
+    });
+  };
+};
+
 const ClearCurrentStory = () => ({ type: "CLEAR_CURRENT_STORY" });
 
-export { ChangePage, ClearStories, LoadStoryFromId, ClearCurrentStory };
+export { ChangePage, ClearStories, LoadStoryFromId, ClearCurrentStory, LoadUserDetailsFromId };
