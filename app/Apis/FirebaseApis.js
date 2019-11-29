@@ -48,9 +48,6 @@ const LoadStories = type => {
 };
 
 const LoadStoriesFromIds = (startingCount = 0, Ids) => {
-  if (loadStoriesCancel) {
-    loadStoriesCancel.cancel();
-  }
   loadStoriesCancel = CancelToken.source();
   const resultPromise = Ids.map(id =>
     fetchStoryInstance.get(`${id}.json`, {

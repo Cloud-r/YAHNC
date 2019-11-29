@@ -7,12 +7,12 @@ const TabNavigationCard = () => (
     <ul id="tab-nav-card-container">
       <li>
         <NavLink activeClassName="selected" to="/stories/top">
-          <span class="mdi mdi-trending-up"></span> Top
+          <span className="mdi mdi-trending-up"></span> Top
         </NavLink>
       </li>
       <li>
         <NavLink activeClassName="selected" to="/stories/new">
-          <span class="mdi mdi-new-box"></span> New
+          <span className="mdi mdi-new-box"></span> New
         </NavLink>
       </li>
       <li>

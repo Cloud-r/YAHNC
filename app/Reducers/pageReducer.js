@@ -3,7 +3,7 @@ const loadReducer = (state = { storiesList: [], pageNo: null }, action) => {
     case "PAGE_CHANGED":
       return {
         ...state,
-        storiesList: action.data.storiesList,
+        storiesList: state.storiesList.concat(action.data.storiesList),
         pageNo: action.data.pageNo
       };
     case "CLEAR_STORIES":
