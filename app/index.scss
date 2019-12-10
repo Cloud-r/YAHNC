@@ -141,13 +141,14 @@ body {
     a {
       text-decoration: none;
       cursor: pointer;
-      color: $primary-text-color;
+      color: $secondary-text-color;
     }
     padding: 20px;
     list-style-type: none;
   }
   .selected {
-    font-weight: bold;
+    font-weight: 700;
+    color: $primary-text-color;
   }
 }
 
@@ -353,5 +354,9 @@ body {
 
 .user-name-display {
   text-decoration: none;
+  color: $link-color;
+}
+
+a {
   color: $link-color;
 }
