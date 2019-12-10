@@ -67,3 +67,5 @@ node_modules/
 
 #generated resources
 dist/
+# Local Netlify folder
+.netlify

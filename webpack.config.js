@@ -47,7 +47,10 @@ module.exports = {
       template: 'app/index.html',
     }),
     new CopyPlugin([{
-      from : '_redirects'
+      from: '_redirects'
+    },
+    {
+      from: 'app/static/'
     }])
   ],
 };
