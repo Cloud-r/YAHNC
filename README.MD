@@ -1,4 +1,4 @@
-# Chronos
+# Yet Another Hacker News Clone
 A news aggregator made with firebase apis from ycombinator
 
 # Libraries Used
